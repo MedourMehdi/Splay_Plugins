@@ -8,7 +8,7 @@ It's adapted for Atari platforms but giving a few efforts it should work on any 
 
 ## Supported formats & Libraries
 
-* MP4:
+* MP4/AAC:
     * fdkaac
     * faad
 
@@ -16,3 +16,62 @@ It's adapted for Atari platforms but giving a few efforts it should work on any 
     * libMad
     * mpg123
     * minimp3
+
+## How it works
+
+Pass the sound file as argument to splay: it will search in his "./plugins" directory for an executable named play"sound extension".prg.
+
+For testing or using these plugins you should rename them as playmp4.prg, playm4u, playmp3 etc... and place them in the plugin directory.
+
+## Benchmark
+
+These results corresponds to the time needed for for decoding 1000ms of sound at 49170Hz * 16bits * 2 channels. They were be produced with Aranym hosted on a Raspberry Pi400.
+
+NB: note that unlike libmad and minimp3, mpg123 resamples samples in real time from 44,1khz to 49,17khz.
+
+* MP4/AAC
+
+| Codec library | Best time(in ms) | Worst time (in ms) |
+| ------------- | ---------------- | ------------------ |
+| fdkaac        | 1090             | 2660               | 
+| faad          | 540              | 1370               | 
+
+* MP3
+
+| Codec library | Best time(in ms) | Worst time (in ms) |
+| ------------- | ---------------- | ------------------ |
+| minimp3       | 0                | 900                | 
+| mpg123        | 0                | 780                | 
+| mad           | 140              | 350                | 
+
+## Build
+
+In each directory you'll find a makefile. Just use make after having grabbed the right library.
+
+* MP3 libraries
+
+mpg123 and libmad were grabbed from Otto's website.
+minimp3 library is already embedded in the code.
+
+* MP4/AAC libraries
+
+mp4v2 is used for parsing the mp4 container.
+fdkaac and mp4v2 was grabbed from Otto's web site.
+faad was built from source with the following commands (you should adapt them to your environment)
+
+```console
+export CMAKE_PREFIX_PATH="/opt/cross-mint/m68k-atari-mint/lib";
+export CMAKE_INCLUDE_PATH=/opt/cross-mint/m68k-atari-mint/include/;
+export CMAKE_LIBRARY_PATH=/opt/cross-mint/m68k-atari-mint/lib/;
+cmake \
+-DCMAKE_SYSTEM_NAME=UNIX \
+-DBUILD_SHARED_LIBS=OFF \
+-DCMAKE_C_FLAGS=" -m68020-60 -fomit-frame-pointer -fno-strict-aliasing -O2 " \
+-DCMAKE_CXX_FLAGS=" -m68020-60 -fomit-frame-pointer -fno-strict-aliasing -O2 -Wno-multichar" \
+-DCMAKE_CXX_COMPILER=m68k-atari-mint-g++ \
+-DCMAKE_C_COMPILER=m68k-atari-mint-gcc \
+-DCMAKE_AR=/opt/cross-mint/bin/m68k-atari-mint-ar \
+-DCMAKE_RANLIB=/opt/cross-mint/bin/m68k-atari-mint-ranlib \
+-DCMAKE_PREFIX_PATH=/opt/cross-mint/m68k-atari-mint/lib \
+```
+

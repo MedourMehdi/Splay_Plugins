@@ -2,3 +2,6 @@
 .vscode/c_cpp_properties.json
 */.DS_Store
 */*PRG
+.DS_Store
+trash*
+*.o
