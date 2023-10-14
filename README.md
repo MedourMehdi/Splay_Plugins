@@ -1,18 +1,18 @@
 # Splay_Plugins
-A list of sound plugins for the sound player splay who works on m68k Atari platforms
+A list of sound plugins for [Splay](http://ol.lutece.net/telechargement/opensource/splay.zip) from Olivier Landemarre. His The concept is to have one interface and many sound players fully independent and corresponding via Unix signals.
+More information [here](https://www.atari-forum.com/viewtopic.php?p=445499&hilit=splay)...
 
-There's you'll find sound player using different library for the same format.
-The purpose is to have a base code to benchmark each of them and particularly on Atari platforms.
+This repository contains many plugins using different libraries for playing the same format.
+The purpose is to establish a base code in order to benchmark these sound libraries.
+It's adapted for Atari platforms but giving a few efforts it should work on any platform.
 
-Whatever, these codes should work on any platform.
+## Supported formats & Libraries
 
-MP4:
+* MP4:
+    * fdkaac
+    * faad
 
-- fdkaac
-- faad
-
-MP3:
-
-- libMad
-- mpg123
-- minimp3
+* MP3:
+    * libMad
+    * mpg123
+    * minimp3
