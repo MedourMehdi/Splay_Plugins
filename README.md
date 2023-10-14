@@ -50,14 +50,14 @@ In each directory you'll find a makefile. Just use make after having grabbed the
 
 * MP3 libraries
 
-mpg123 and libmad were grabbed from Otto's website.
-minimp3 library is already embedded in the code.
+- [mpg123](https://www.mpg123.de/index.shtml) and [libmad](http://m.baert.free.fr/contrib/docs/libmad/doxy/html/index.html) were grabbed from [Otto's website](https://tho-otto.de/crossmint.php)
+- [minimp3](https://github.com/lieff/minimp3) library is already embedded in the code
 
 * MP4/AAC libraries
 
-mp4v2 is used for parsing the mp4 container.
-fdkaac and mp4v2 was grabbed from Otto's web site.
-faad was built from source with the following commands (you should adapt them to your environment)
+- [mp4v2](https://mp4v2.org/) is used to parse the mp4 container
+- [fdkaac](https://github.com/mstorsjo/fdk-aac) and mp4v2 was grabbed from [Otto's website](https://tho-otto.de/crossmint.php)
+- [faad2](https://github.com/knik0/faad2) was built from source with the following commands (you should adapt them to your environment):
 
 ```console
 export CMAKE_PREFIX_PATH="/opt/cross-mint/m68k-atari-mint/lib";
@@ -74,4 +74,3 @@ cmake \
 -DCMAKE_RANLIB=/opt/cross-mint/bin/m68k-atari-mint-ranlib \
 -DCMAKE_PREFIX_PATH=/opt/cross-mint/m68k-atari-mint/lib \
 ```
-
