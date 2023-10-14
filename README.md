@@ -29,14 +29,14 @@ These results corresponds to the time needed for for decoding 1000ms of sound at
 
 NB: note that unlike libmad and minimp3, mpg123 resamples samples in real time from 44,1khz to 49,17khz.
 
-* MP4/AAC
+* MP4/AAC ([sample mp3 used](https://dl.espressif.com/dl/audio/ff-16b-2c-44100hz.mp3))
 
 | Codec library | Best time(in ms) | Worst time (in ms) |
 | ------------- | ---------------- | ------------------ |
 | fdkaac        | 1090             | 2660               | 
 | faad          | 540              | 1370               | 
 
-* MP3
+* MP3 ([sample mp3 used](https://dl.espressif.com/dl/audio/ff-16b-2c-44100hz.mp4))
 
 | Codec library | Best time(in ms) | Worst time (in ms) |
 | ------------- | ---------------- | ------------------ |
