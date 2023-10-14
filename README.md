@@ -21,7 +21,7 @@ It's adapted for Atari platforms but giving a few efforts it should work on any 
 
 Pass the sound file as argument to splay: it will search in his "./plugins" directory for an executable named play"sound extension".prg.
 
-For testing or using these plugins you should rename them as playmp4.prg, playm4u, playmp3 etc... and place them in the plugin directory.
+For testing or using these plugins you should rename them as playmp4.prg, playm4u.prg, playmp3.prg ... and place them in the plugin directory.
 
 ## Benchmark
 
