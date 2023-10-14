@@ -25,7 +25,7 @@ For testing or using these plugins you should rename them as playmp4.prg, playm4
 
 ## Benchmark
 
-These results corresponds to the time needed for for decoding 1000ms of sound at 49170Hz * 16bits * 2 channels. They were be produced with Aranym hosted on a Raspberry Pi400.
+These results corresponds to the time needed for for decoding 1000ms of sound at 49170Hz * 16bits * 2 channels. They were produced with Aranym hosted on a Raspberry Pi400.
 
 NB: note that unlike libmad and minimp3, mpg123 resamples samples in real time from 44,1khz to 49,17khz.
 
@@ -60,6 +60,7 @@ In each directory you'll find a makefile. Just use make after having grabbed the
 - [faad2](https://github.com/knik0/faad2) was built from source with the following commands (you should adapt them to your environment):
 
 ```console
+cd faad2; mkdir build; cd build;
 export CMAKE_PREFIX_PATH="/opt/cross-mint/m68k-atari-mint/lib";
 export CMAKE_INCLUDE_PATH=/opt/cross-mint/m68k-atari-mint/include/;
 export CMAKE_LIBRARY_PATH=/opt/cross-mint/m68k-atari-mint/lib/;
@@ -73,4 +74,5 @@ cmake \
 -DCMAKE_AR=/opt/cross-mint/bin/m68k-atari-mint-ar \
 -DCMAKE_RANLIB=/opt/cross-mint/bin/m68k-atari-mint-ranlib \
 -DCMAKE_PREFIX_PATH=/opt/cross-mint/m68k-atari-mint/lib \
+../
 ```
